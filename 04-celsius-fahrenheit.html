@@ -7,10 +7,60 @@
     <title>celsius fahrenheit</title>
 </head>
 <body>
+    <button onclick="controleCF()">Omzetten van C naar F</button>
+    <button onclick="controleFC()">Omzetten van F naar C</button>
+
+
     <script>
+        function controleCF() {
+            let gradenCelsius = prompt("Hoeveel graden Celsius wil je omzetten?");
+            if ( gradenCelsius == null ){
+            document.write (`<p>U heeft geannuleerd!</p>`);
+            return false;
+            }
+            else if (gradenCelsius.length == 0){
+            document.write (`<p>U heeft niets ingegeven!</p>`);
+            return false;
+             }
+           
+            else if (isNaN(gradenCelsius)) {
+            document.write (`<p>U heeft geen getal ingegeven!</p>`);
+            return false;
+                
+            } else {
+                let gradenFahrenheit = (gradenCelsius * 9)/5 + 32;
+                alert(`${gradenCelsius} °C is ${gradenFahrenheit}°F.`);
+              
+            }
+        }
+
+        function controleFC() {
+            let gradenFahrenheit = prompt("Hoeveel graden Fahrenheit wil je omzetten?");
+            if ( gradenFahrenheit == null ){
+            document.write (`<p>U heeft geannuleerd!</p>`);
+            return false;
+            }
+            else if (gradenFahrenheit.length == 0){
+            document.write (`<p>U heeft niets ingegeven!</p>`);
+            return false;
+             }
+           
+            else if (isNaN(gradenFahrenheit)) {
+            document.write (`<p>U heeft geen getal ingegeven!</p>`);
+            return false;
+                
+            } else {
+                let gradenCelsius = ((gradenFahrenheit - 32) * 5)/9;
+                alert(`${gradenFahrenheit} °F is ${gradenCelsius}°C.`);
+              
+            }
+           
+        }
+    </script>
+            
 
         
 
-    </script>
+    
 </body>
 </html>
