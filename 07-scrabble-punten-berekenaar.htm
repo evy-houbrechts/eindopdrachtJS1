@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="nl">
 <head>
     <meta charset="UTF-8">
@@ -7,9 +8,30 @@
 </head>
 <body>
     <script>
+        "use strict";
 
+
+       let   woord = prompt ("Welke welk woord wil jij de score berekenen?");
+             document.write (`<h1>Scrabble punten berekenaar</h1>`);
+             document.write (`<p>Het Woord is: ${woord}</p>`);
+             
+        let alfabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+        let alfabetScore = [1, 3, 3, 2, 1, 4, 2, 4, 1, 8, 5, 1, 3, 1, 1, 3, 10, 1, 1, 1, 1, 4, 4, 8, 4, 10];
         
+        let totaalPunten = 0; 
+     
+        for( let i = 0; i < woord.length; i++){
+            let woordUp = woord.toUpperCase();
+            let locatie = alfabet.indexOf(woordUp[i]);
+            document.write (`<p>${woordUp[i]} - ${alfabetScore[locatie]} </p>`);
+            
+            let punten = alfabetScore[locatie];
+            totaalPunten += punten;
+        } 
+
+        document.write (`<h2>Totaal : ${totaalPunten} punten </h2>`);
 
     </script>
 </body>
-</html>
+</html>  
+            
