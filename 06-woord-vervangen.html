@@ -1,15 +1,76 @@
+<!DOCTYPE html>
 <html lang="nl">
 <head>
     <meta charset="UTF-8">
     <meta name="auther" content="Evy houbrechts">
     <meta name="keywords" content="javascript">
+    <style type="text/css">
+        .error{color:red;}
+        body{ text-align: center;}
+        label{line-height: 20px;}
+    </style>;
     <title>Woord vervangen</title>
 </head>
 <body>
+    <h1>Vervang het woord</h1>
+    <form id="formulier">
+        <p>
+            <label for="zin">Zin:</label><br>
+            <input type="text"  id="zin"/>
+        </p>
+
+        <p>
+            <label for="woord">Zoek dit woord:</label><br>
+            <input type="text"  id="woord"/>
+            <span class="error" id="woord_error"></span>
+        </p>
+
+        <p>
+            <label for="nieuwWoord">Dit woord komt in de plaats:</label><br>
+            <input type="text"  id="nieuwWoord"/>
+        </p>
+
+        <p>
+            <input type="button" value="Vervang" id="knop_vervang" onclick="verzend()" />
+        </p>
+
+        <p>
+            <label for="nieuwZin">De nieuwe zin:</label><br>
+            <input type="text"  id="nieuwZin"/>
+        </p>
+
+    </form>
+
     <script>
+        "use strict";
 
+        function verzend(){
+        let zintxt = document.getElementById("zin").value;
+        let woordtxt = document.getElementById("woord").value;
+        let nieuwWoordtxt = document.getElementById("nieuwWoord").value;
+         
+        if(zintxt.length == 0 || woordtxt.length == 0 || nieuwWoordtxt.length == 0){
+            alert ("u heeft niets ingevuld");
+
+        }
+        else{
+            vervangwoord(zintxt, woordtxt, nieuwWoordtxt);
+        } 
+        }
         
+       function vervangwoord(zintxt, woordtxt, nieuwWoordtxt){ 
 
+        if (!zintxt.includes(woordtxt)){
+             document.getElementById("woord_error").innerHTML="Dit woord is niet gevonden!";
+
+        }
+        else {
+            document.getElementById("woord_error").innerHTML="";
+            let nieuweZin = zintxt.replace(woordtxt, nieuwWoordtxt);
+            document.getElementById("nieuwZin").value = nieuweZin;
+        }
+        }
     </script>
+
 </body>
 </html>
