@@ -4,14 +4,24 @@
     <meta charset="UTF-8">
     <meta name="auther" content="Evy houbrechts">
     <meta name="keywords" content="javascript">
+     <style type="text/css">
+        button{
+            color: rgb(31, 12, 50);
+            background-color: rgb(214, 196, 230);
+            font-size: 110%;
+            margin: 20px;
+        }
+
+    </style>
     <title>celsius fahrenheit</title>
 </head>
 <body>
     <button onclick="controleCF()">Omzetten van C naar F</button>
     <button onclick="controleFC()">Omzetten van F naar C</button>
-
+   
 
     <script>
+        "use strict";
         function controleCF() {
             let gradenCelsius = prompt("Hoeveel graden Celsius wil je omzetten?");
             if ( gradenCelsius == null ){
