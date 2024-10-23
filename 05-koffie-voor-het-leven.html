@@ -8,9 +8,42 @@
 </head>
 <body>
     <script>
+        "use strict";
 
-        
+        function berekenHoeveelheid(){ 
+            let geboortejaar = prompt ("Wat is je geboortejaar?");
+            let ouderdom = prompt("Hoe oud denk je te worden?");
+            let koffie = prompt ("Hoeveel tassen koffie drink je per dag?");
 
+        if (geboortejaar === null || ouderdom === null || koffie === null){
+            document.write("U heeft geannuleerd");
+            return false; 
+        }
+        else if (geboortejaar.length < 4 || ouderdom.length == 0 || koffie.length == 0){
+            document.write("U heeft niets ingevult of je geboortedatum moet 4 cijfers hebben.");
+            return false;
+        }
+        else if (isNaN(geboortejaar) || isNaN(ouderdom) || isNaN(koffie)){
+            document.write("Dit is geen correcte ingave");
+            return false;
+        }
+
+        else {
+             tonen(parseInt(geboortejaar), parseInt(ouderdom), parseInt(koffie));
+            
+        }
+    }
+   berekenHoeveelheid();
+
+    function tonen(geboortejaar, ouderdom, koffie){ 
+            const huidigJaar = new Date().getFullYear();
+            const leeftijd = huidigJaar - geboortejaar;
+            const aantalJaren = ouderdom - leeftijd;
+            const aantalKoffie = (koffie * 365)*aantalJaren;
+            document.write (`<p>Je wordt/bent dit jaar ${leeftijd}. </p>
+            <p>Tegen ${koffie} koppen koffie per dag zal je nog ${aantalKoffie} koppen koffie drinken als je ${ouderdom} jaar oud zal worden.</p>`)
+        }
     </script>
+
 </body>
 </html>
